@@ -7,20 +7,24 @@
 
 <p>
   <strong>На станции</strong>
-  <% if @train.current_station %>
-    <%= @train.current_station.title %>
-  <% else %>
-    Станция не назначена
-  <% end %>
+  <ul>
+    <% if @train.current_station %>
+      <li><%= @train.current_station.title %></li>
+    <% else %>
+      Станция не назначена
+    <% end %>
+</ul>
 </p>
 
 <p>
   <strong>Маршрут</strong>
-  <% if @train.route %>
-    <%= @train.route.name %>
-  <% else %>
-    Маршрут не назначен
-  <% end %>
+  <ul>
+    <% if @train.route %>
+      <li><%= @train.route.name %></li>
+    <% else %>
+      Маршрут не назначен
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
