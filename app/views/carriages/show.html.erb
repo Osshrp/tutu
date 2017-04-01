@@ -12,13 +12,11 @@
 
 <p>
   <strong>Поезд</strong>
-  <ul>
-    <% if @carriage.train %>
-      <li><%= @carriage.train.number %></li>
-    <% else %>
-      Поезд не назначен
-    <% end %>
-  </ul>
+  <% if @carriage.train %>
+    <%= @carriage.train.number %>
+  <% else %>
+    Поезд не назначен
+  <% end %>
 </p>
 
 <%= link_to 'Изменить', edit_carriage_path(@carriage) %> |
