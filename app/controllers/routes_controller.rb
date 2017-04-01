@@ -5,8 +5,7 @@ class RoutesController < ApplicationController
     @routes = Route.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @route = Route.new
@@ -16,18 +15,17 @@ class RoutesController < ApplicationController
     @route = Route.new(route_params)
 
     if @route.save
-      redirect_to @route, notice: "Новый маршрут успешно создан"
+      redirect_to @route, notice: 'Новый маршрут успешно создан'
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @route.update(route_params)
-      redirect_to @route, notice: "Маршрут успешно изменен"
+      redirect_to @route, notice: 'Маршрут успешно изменен'
     else
       render :new
     end
@@ -35,7 +33,7 @@ class RoutesController < ApplicationController
 
   def destroy
     @route.destroy
-    redirect_to routes_url, notice: "Маршрут удалет"
+    redirect_to routes_url, notice: 'Маршрут удалет'
   end
 
   private

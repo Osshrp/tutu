@@ -5,15 +5,13 @@ class CarriagesController < ApplicationController
     @carriages = Carriage.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @carriage = Carriage.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @carriage = Carriage.new(carriage_params)
@@ -39,11 +37,12 @@ class CarriagesController < ApplicationController
   end
 
   private
-    def set_carriage
-      @carriage = Carriage.find(params[:id])
-    end
 
-    def carriage_params
-      params.require(:carriage).permit(:car_type, :number, :train_id, :upper_places, :bottom_places)
-    end
+  def set_carriage
+    @carriage = Carriage.find(params[:id])
+  end
+
+  def carriage_params
+    params.require(:carriage).permit(:car_type, :number, :train_id, :upper_places, :bottom_places)
+  end
 end

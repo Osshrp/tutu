@@ -1,14 +1,10 @@
 class Train < ApplicationRecord
-  belongs_to :current_station, class_name: "RailwayStation", foreign_key: :current_station_id
+  belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :current_station_id
   belongs_to :route
   has_many :tickets
   has_many :carriages
 
   validates :number, presence: true
-
-  # def inittalize
-  #   # @places = {}
-  # end
 
   def second_class_cars
     carriages.where("car_type = 'купе'").count
@@ -22,7 +18,6 @@ class Train < ApplicationRecord
     places = {}
     carriages.each do |carriage|
       if carriage.car_type == 'купе'
-        # byebug
         places[:second_class_upper_places] = carriage.upper_places
         places[:second_class_bottom_places] = carriage.bottom_places
       else
