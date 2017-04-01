@@ -1,0 +1,17 @@
+<%= form_for(carriage) do |f| %>
+  <%= render 'common/errors', resource: carriage %>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :car_type %>
+    <%= f.text_field :car_type %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Сохранить'%>
+  </div>
+<% end %>
