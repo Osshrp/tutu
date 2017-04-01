@@ -27,5 +27,39 @@
   </ul>
 </p>
 
+<p>
+  <strong>Купейных вагонов:</strong>
+  <%= @train.second_class_cars %>
+</p>
+
+<p>
+  <strong>Купейных верхних мест:</strong>
+  <%= @train.places[:second_class_upper_places] %>
+</p>
+
+<p>
+  <strong>Купейных нижних мест:</strong>
+  <%= @train.places[:second_class_bottom_places] %>
+</p>
+
+<p>
+  <strong>Плацкартных вагонов:</strong>
+  <%= @train.third_class_cars %>
+</p>
+
+<p>
+  <strong>Плацкартных верхних мест:</strong>
+  <%= @train.places[:third_class_upper_places] %>
+</p>
+
+<p>
+  <strong>Плацкартных нижних мест:</strong>
+  <%= @train.places[:third_class_bottom_places] %>
+</p>
+
+
+
+
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
