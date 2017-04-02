@@ -5,15 +5,13 @@ class RailwayStationsController < ApplicationController
     @railway_stations = RailwayStation.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @railway_station = RailwayStation.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @railway_station = RailwayStation.new(railway_station_params)
@@ -39,11 +37,12 @@ class RailwayStationsController < ApplicationController
   end
 
   private
-    def set_railway_station
-      @railway_station = RailwayStation.find(params[:id])
-    end
 
-    def railway_station_params
-      params.require(:railway_station).permit(:title)
-    end
+  def set_railway_station
+    @railway_station = RailwayStation.find(params[:id])
+  end
+
+  def railway_station_params
+    params.require(:railway_station).permit(:title)
+  end
 end

@@ -1,0 +1,7 @@
+= form_for(route) do |f|
+  = render 'common/errors', resource: route
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit

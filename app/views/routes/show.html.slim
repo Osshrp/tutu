@@ -1,0 +1,25 @@
+p#notice= notice
+p
+  strong Имя:
+  = @route.name
+p
+  strong Поезда на маршруте:
+  - if @route.trains.empty?
+    | Поездов на маршруте нет
+  - else
+    ul
+      - @route.trains.each do |train|
+        li
+          | Поезд №#{train.number}
+p
+  strong Станции маршрута:
+  - if @route.railway_stations.empty?
+    | Станций в маршруте нет
+  - else
+    ul
+      - @route.railway_stations.each do |station|
+        li
+          = station.title
+= link_to 'Редактировать', edit_route_path(@route)
+| \
+= link_to 'Назад', routes_path
