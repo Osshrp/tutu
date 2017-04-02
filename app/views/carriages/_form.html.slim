@@ -1,0 +1,20 @@
+= form_for(carriage) do |f|
+  = render 'common/errors', resource: carriage
+  .field
+    p
+    h3 Тип вагона
+    = f.label :car_type, 'Купе'
+    = f.radio_button :car_type, 'купе'
+    = f.label :car_type, 'Плацкарт'
+    = f.radio_button :car_type, 'плацкарт'
+  .field
+    = f.label :upper_places, 'Количество верхних мест'
+    = f.number_field :upper_places
+  .field
+    = f.label :bottom_places, 'Колличества нижних мест'
+    = f.number_field :bottom_places
+  .field
+    = f.label :train, 'Поезд'
+    = f.collection_select :train_id, Train.all, :id, :number
+  .actions
+    = f.submit 'Сохранить'

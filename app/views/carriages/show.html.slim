@@ -1,0 +1,16 @@
+p#notice= notice
+p
+  strong Номер вагона:
+  = @carriage.id
+p
+  strong Тип вагона:
+  = @carriage.car_type
+p
+  strong Поезд
+  - if @carriage.train
+    = @carriage.train.number
+  - else
+    | Поезд не назначен
+= link_to 'Изменить', edit_carriage_path(@carriage)
+| \
+= link_to 'Назад', carriages_path
