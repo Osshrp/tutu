@@ -7,11 +7,11 @@ class Train < ApplicationRecord
   validates :number, presence: true
 
   def second_class_cars
-    carriages.where("car_type = 'купе'").count
+    carriages.where(car_type: 'купе').count
   end
 
   def third_class_cars
-    carriages.where("car_type = 'плацкарт'").count
+    carriages.where(car_type: 'плацкарт').count
   end
 
   def places
