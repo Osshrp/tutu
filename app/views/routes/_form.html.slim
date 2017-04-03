@@ -3,5 +3,9 @@
   .field
     = f.label :name
     = f.text_field :name
+
+  .field
+    = f.label :railway_station_ids, "Текущая станция"
+    = f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true }
   .actions
-    = f.submit
+    = f.submit "#{ route.new_record? ? 'Создать' : 'Изменить' }"
