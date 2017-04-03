@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403072809) do
+ActiveRecord::Schema.define(version: 20170403102746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,12 @@ ActiveRecord::Schema.define(version: 20170403072809) do
     t.integer  "number"
     t.integer  "upper_places"
     t.integer  "bottom_places"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "train_id"
+    t.integer  "side_upper_places"
+    t.integer  "side_bottom_places"
+    t.string   "type"
     t.index ["train_id"], name: "index_carriages_on_train_id", using: :btree
   end
 

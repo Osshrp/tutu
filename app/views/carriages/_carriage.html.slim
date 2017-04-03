@@ -1,5 +1,6 @@
-tr
-  td= carriage.id
-  td= link_to 'Показать', carriage
-  td= link_to 'Изменить', edit_carriage_path(carriage)
-  td= link_to 'Удалить', carriage, method: :delete, data: { confirm: 'Вы уверены?' }
+- @carriages.each do |carriage|
+  tr
+    td= carriage.id
+    td= link_to 'Показать', carriage_path(carriage)
+    td= link_to 'Изменить', edit_carriage_path(carriage)
+    td= link_to 'Удалить', carriage_path(carriage), method: :delete, data: { confirm: 'Вы уверены?' }

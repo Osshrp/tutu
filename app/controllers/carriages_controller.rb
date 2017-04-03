@@ -14,10 +14,11 @@ class CarriagesController < ApplicationController
   def edit; end
 
   def create
-    @carriage = Carriage.new(carriage_params)
+    byebug
+    @carriage = class_name(params["class_id"]).constantize.new(carriage_params)
 
     if @carriage.save
-      redirect_to @carriage, notice: 'Carriage was successfully created.'
+      redirect_to edit_carriage_path(@carriage, notice: 'Carriage was successfully created.')
     else
       render :new
     end
@@ -44,5 +45,11 @@ class CarriagesController < ApplicationController
 
   def carriage_params
     params.require(:carriage).permit(:car_type, :number, :train_id, :upper_places, :bottom_places)
+  end
+
+  def class_name(id)
+    car_type = { "1" => 'FirstClassCarriage', "2" => 'SecondClassCarriage',
+             "3" => 'ThirdClassCarriage' }
+    car_type[id] if car_type.key?(id)
   end
 end

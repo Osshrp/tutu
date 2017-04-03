@@ -1,4 +1,4 @@
-= form_for(carriage) do |f|
+= form_for(carriage.becomes(Carriage)) do |f|
   = render 'common/errors', resource: carriage
   .field
     p
@@ -7,6 +7,10 @@
     = f.radio_button :car_type, 'купе'
     = f.label :car_type, 'Плацкарт'
     = f.radio_button :car_type, 'плацкарт'
+
+    = select_tag(:class_id,
+      options_for_select([['св', 1], ['купе', 2], ['плацкарт', 3]]))
+
   .field
     = f.label :upper_places, 'Количество верхних мест'
     = f.number_field :upper_places

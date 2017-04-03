@@ -4,8 +4,8 @@ table
   thead
     tr
       th Номер
-      th colspan: "3" 
+      th colspan: "3"
   tbody
-    = render @carriages
+    = render 'carriage' , collection: @carriages
 br/
 = link_to 'Новый вагон', new_carriage_path
