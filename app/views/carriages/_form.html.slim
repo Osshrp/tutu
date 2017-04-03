@@ -2,14 +2,9 @@
   = render 'common/errors', resource: carriage
   .field
     p
-    h3 Тип вагона
-    = f.label :car_type, 'Купе'
-    = f.radio_button :car_type, 'купе'
-    = f.label :car_type, 'Плацкарт'
-    = f.radio_button :car_type, 'плацкарт'
-
-    = select_tag(:class_id,
-      options_for_select([['св', 1], ['купе', 2], ['плацкарт', 3]]))
+    - if carriage.new_record?
+      = select_tag(:class_id,
+        options_for_select([['св', 1], ['купе', 2], ['плацкарт', 3]]))
 
   .field
     = f.label :upper_places, 'Количество верхних мест'
@@ -17,6 +12,13 @@
   .field
     = f.label :bottom_places, 'Колличества нижних мест'
     = f.number_field :bottom_places
+  .field
+    = f.label :side_upper_places, 'Колличества верхних боковых мест'
+    = f.number_field :side_upper_places
+  .field
+    = f.label :side_bottom_places, 'Колличества нижних боковых мест'
+    = f.number_field :side_bottom_places
+
   .field
     = f.label :train, 'Поезд'
     = f.collection_select :train_id, Train.all, :id, :number
