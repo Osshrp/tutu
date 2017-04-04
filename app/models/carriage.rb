@@ -5,6 +5,8 @@ class Carriage < ApplicationRecord
 
   before_save :set_type
 
+  # scope: :ordered, -> { order(:number) }
+
   private
 
   def set_type

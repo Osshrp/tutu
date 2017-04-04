@@ -17,9 +17,9 @@ p
     | Станций в маршруте нет
   - else
     ul
-      - @route.railway_stations.each do |station|
+      - @route.railway_stations_routes.ordered.each do |station_in_route|
         li
-          = station.title
+          = "#{station_in_route.station_index}. #{station_in_route.railway_station.title}"
 = link_to 'Редактировать', edit_route_path(@route)
 | \
 = link_to 'Назад', routes_path

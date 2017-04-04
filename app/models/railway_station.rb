@@ -5,8 +5,11 @@ class RailwayStation < ApplicationRecord
 
   validates :title, presence: true
 
-  def update_postion(position, route)
-    station_in_route = RailwayStationsRoute.where(railway_station: self, route: route).first
+  # default_scoup(order: :id)
+
+  def update_position(position, route)
+    station_in_route = self.railway_stations_routes.where(route: route).first
+    station_in_route.station_index = position
     station_in_route.save
   end
 end

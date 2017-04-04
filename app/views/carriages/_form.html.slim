@@ -4,7 +4,7 @@
     p
     - if carriage.new_record?
       = select_tag(:class_id,
-        options_for_select([['св', 1], ['купе', 2], ['плацкарт', 3]]))
+        options_for_select([['св', 1], ['купе', 2], ['плацкарт', 3], ['сидячий', 4]]))
 
   .field
     = f.label :upper_places, 'Количество верхних мест'
