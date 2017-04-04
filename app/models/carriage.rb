@@ -2,10 +2,11 @@ class Carriage < ApplicationRecord
   belongs_to :train
 
   validates :bottom_places, presence: true
+  validates :number, uniqueness: { scope: :train_id }
 
-  before_save :set_type
+  before_save :set_type, :set_number
 
-  # scope: :ordered, -> { order(:number) }
+  scope :ordered, -> { order(:number) }
 
   private
 
@@ -16,5 +17,10 @@ class Carriage < ApplicationRecord
                   'CouchCarriage' => 'сидячий' }
 
     self.car_type = car_types[self.class.to_s]
+  end
+
+  def set_number
+    carriages = train.carriages
+    self.number ||= carriages.map { |car| car.number.to_i }.max + 1
   end
 end
