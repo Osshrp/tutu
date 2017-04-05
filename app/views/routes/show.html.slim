@@ -10,7 +10,7 @@ p
     ul
       - @route.trains.each do |train|
         li
-          | Поезд №#{train.number}
+          = link_to "Поезд №#{train.number}", train
 p
   strong Станции маршрута:
   - if @route.railway_stations.empty?
@@ -19,7 +19,7 @@ p
     ul
       - @route.railway_stations_routes.ordered.each do |station_in_route|
         li
-          = "#{station_in_route.station_index}. #{station_in_route.railway_station.title}"
+          = link_to "#{station_in_route.station_index} #{station_in_route.railway_station.title}", station_in_route.railway_station
 = link_to 'Редактировать', edit_route_path(@route)
 | \
 = link_to 'Назад', routes_path

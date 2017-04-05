@@ -1,14 +1,16 @@
 p#notice= notice
 p
   strong Номер вагона:
-  = @carriage.id
+  = @carriage.number
 p
   strong Тип вагона:
   = @carriage.car_type
 p
+  = render CarriagesHelper.car_type_hash[@carriage.type], carriage: @carriage
+p
   strong Поезд
   - if @carriage.train
-    = @carriage.train.number
+    = link_to "#{@carriage.train.number}", @carriage.train
   - else
     | Поезд не назначен
 = link_to 'Изменить', edit_carriage_path(@carriage)
