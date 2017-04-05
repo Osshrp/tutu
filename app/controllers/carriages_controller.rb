@@ -50,7 +50,7 @@ class CarriagesController < ApplicationController
 
   def class_name(id)
     car_type = { '1' => 'FirstClassCarriage', '2' => 'SecondClassCarriage',
-             '3' => 'ThirdClassCarriage', '4' => 'CouchCarriage'  }
+             '3' => 'ThirdClassCarriage', '4' => 'CouchCarriage'}
     car_type[id] if car_type.key?(id)
   end
 end
