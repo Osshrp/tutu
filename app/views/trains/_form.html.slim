@@ -9,5 +9,8 @@
   .field
     = f.label :route, "Маршрут"
     = f.collection_select :route_id, Route.all, :id, :name
+  .field
+    = f.label :sort, "Нумерация вагонов:"
+    = f.select(:sort, options_for_select([['с головы', true], ['с хвоста', false]]))
   .actions
     = f.submit

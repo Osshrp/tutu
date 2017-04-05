@@ -2,7 +2,7 @@ p#notice= notice
 p
   strong Номер поезда:
   br
-  = @train.number
+  = link_to "#{@train.number}", @train
 
 p
   strong На станции
@@ -45,7 +45,7 @@ strong Плацкартных боковых нижних мест:
 p
   strong Вагоны
   ul
-    - @train.carriages.each do |carriage|
+    - @train.ordered(@train.carriages).each do |carriage|
       li
         = link_to "Вагон № #{carriage.number}" , carriage_path(carriage)
 = link_to 'Редактировать', edit_train_path(@train)

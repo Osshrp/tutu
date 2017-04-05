@@ -6,7 +6,8 @@ class Carriage < ApplicationRecord
 
   before_save :set_type, :set_number
 
-  scope :ordered, -> { order(:number) }
+  scope :asc_ordered, -> { order(:number) }
+  scope :desc_ordered, -> { order(number: :desc) }
 
   private
 

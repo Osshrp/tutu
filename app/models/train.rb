@@ -27,4 +27,16 @@ class Train < ApplicationRecord
     end
     places
   end
+
+  def ordered(carriages)
+    sort ? carriages.asc_ordered : carriages.desc_ordered
+  end
+
+  def places_quantity(car_type, place_type)
+    sum = 0
+    carriages.where(car_type: car_type).each do |carriage|
+      sum += carriage.send(place_type)
+    end
+    sum
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403102746) do
+ActiveRecord::Schema.define(version: 20170405075951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170403102746) do
     t.datetime "updated_at",         null: false
     t.integer  "current_station_id"
     t.integer  "route_id"
+    t.boolean  "sort"
     t.index ["current_station_id"], name: "index_trains_on_current_station_id", using: :btree
     t.index ["route_id"], name: "index_trains_on_route_id", using: :btree
   end
