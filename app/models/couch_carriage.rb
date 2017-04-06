@@ -1,2 +1,2 @@
-class FirstClassCarriage < Carriage
+class CouchCarriage < Carriage
 end

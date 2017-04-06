@@ -6,12 +6,8 @@ class Train < ApplicationRecord
 
   validates :number, presence: true
 
-  def second_class_cars
-    carriages.where(car_type: 'купе').count
-  end
-
-  def third_class_cars
-    carriages.where(car_type: 'плацкарт').count
+  def carriages_count(type)
+    carriages.where(type: type).count
   end
 
   def places
@@ -32,11 +28,7 @@ class Train < ApplicationRecord
     sort ? carriages.asc_ordered : carriages.desc_ordered
   end
 
-  def places_quantity(car_type, place_type)
-    sum = 0
-    carriages.where(car_type: car_type).each do |carriage|
-      sum += carriage.send(place_type)
-    end
-    sum
+  def places_quantity(carriage_type, place_type)
+    carriages.where(type: carriage_type).sum(place_type)
   end
 end

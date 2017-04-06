@@ -7,7 +7,7 @@
         options_for_select([['св', 1], ['купе', 2], ['плацкарт', 3], ['сидячий', 4]]))
     - else
       strong Тип вагона:
-      = carriage.car_type
+      = carriage.car_type[carriage.type]
 
   .field
     = f.label :upper_places, 'Количество верхних мест'

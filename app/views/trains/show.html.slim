@@ -20,7 +20,7 @@ p
     | Маршрут не назначен
 p
   strong Купейных вагонов:
-  = @train.second_class_cars
+  = @train.carriages_count('SecondClassCarriage')
 p
   strong Купейных верхних мест:
   = @train.places[:second_class_upper_places]
@@ -29,7 +29,7 @@ p
   = @train.places[:second_class_bottom_places]
 p
   strong Плацкартных вагонов:
-  = @train.third_class_cars
+  = @train.carriages_count('ThirdClassCarriage')
 p
   strong Плацкартных верхних мест:
   = @train.places[:third_class_upper_places]

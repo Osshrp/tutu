@@ -4,9 +4,9 @@ p
   = @carriage.number
 p
   strong Тип вагона:
-  = @carriage.car_type
+  = @carriage.car_type[@carriage.type]
 p
-  = render CarriagesHelper.car_type_hash[@carriage.type], carriage: @carriage
+  = render @carriage.class.to_s.underscore, carriage: @carriage
 p
   strong Поезд
   - if @carriage.train
