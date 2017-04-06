@@ -24,9 +24,9 @@ class Train < ApplicationRecord
     places
   end
 
-  def ordered(carriages)
-    sort ? carriages.asc_ordered : carriages.desc_ordered
-  end
+  # def ordered(carriages)
+  #   sort ? carriages.asc_ordered : carriages.desc_ordered
+  # end
 
   def places_quantity(carriage_type, place_type)
     carriages.where(type: carriage_type).sum(place_type)

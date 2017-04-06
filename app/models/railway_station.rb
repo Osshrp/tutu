@@ -10,6 +10,6 @@ class RailwayStation < ApplicationRecord
   def update_position(position, route)
     station_in_route = self.railway_stations_routes.where(route: route).first
     station_in_route.station_index = position
-    station_in_route.save
+    station_in_route.save if station_in_route
   end
 end

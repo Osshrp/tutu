@@ -3,13 +3,10 @@
   .field
     p
     - if carriage.new_record?
-      = f.select(:type, options_for_select([['св', 'FirstClassCarriage'],
-                                            ['купе', 'SecondClassCarriage'],
-                                            ['плацкарт', 'ThirdClassCarriage'],
-                                            ['сидячий', 'CouchCarriage']]))
+      = f.select(:type, options_for_select(Carriage::CAR_TYPE.to_a.map(&:reverse)))
     - else
       strong Тип вагона:
-      = carriage.car_type[carriage.type]
+      = Carriage::CAR_TYPE[carriage.type]
 
   .field
     = f.label :upper_places, 'Количество верхних мест'

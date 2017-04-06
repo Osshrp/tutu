@@ -45,7 +45,7 @@ strong Плацкартных боковых нижних мест:
 p
   strong Вагоны
   ul
-    - @train.ordered(@train.carriages).each do |carriage|
+    - @train.carriages.ordered(@train).each do |carriage|
       li
         = link_to "Вагон № #{carriage.number}" , carriage_path(carriage)
 = link_to 'Редактировать', edit_train_path(@train)
