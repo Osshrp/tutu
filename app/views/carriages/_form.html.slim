@@ -3,8 +3,7 @@
   .field
     p
     - if carriage.new_record?
-      = f.select :type,
-        options_from_collection_for_select(Carriage::CAR_TYPES, :first, :last)
+      = f.collection_select :type, Carriage::CAR_TYPES, :first, :last
     - else
       strong Тип вагона:
       = Carriage::CAR_TYPES[carriage.type]
