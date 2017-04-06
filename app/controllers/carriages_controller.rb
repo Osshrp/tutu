@@ -14,10 +14,11 @@ class CarriagesController < ApplicationController
   def edit; end
 
   def create
-    @carriage = class_name(params["class_id"]).constantize.new(carriage_params)
+    @carriage = Carriage.new(carriage_params)
 
     if @carriage.save
-      redirect_to edit_carriage_path(@carriage, notice: 'Carriage was successfully created.')
+      redirect_to edit_carriage_path(@carriage,
+        notice: 'Carriage was successfully created.')
     else
       render :new
     end
@@ -25,7 +26,8 @@ class CarriagesController < ApplicationController
 
   def update
     if @carriage.update(carriage_params)
-      redirect_to carriages_path(@carriage, notice: 'Carriage was successfully updated.')
+      redirect_to carriages_path(@carriage,
+        notice: 'Carriage was successfully updated.')
     else
       render :edit
     end
@@ -33,7 +35,8 @@ class CarriagesController < ApplicationController
 
   def destroy
     @carriage.destroy
-    redirect_to carriages_url, notice: 'Carriage was successfully destroyed.'
+    redirect_to carriages_url, notice:
+      'Carriage was successfully destroyed.'
   end
 
   private
@@ -45,12 +48,6 @@ class CarriagesController < ApplicationController
   def carriage_params
     params.require(:carriage).permit(:number, :train_id,
       :upper_places, :bottom_places, :side_upper_places,
-      :side_bottom_places)
-  end
-
-  def class_name(id)
-    car_type = { '1' => 'FirstClassCarriage', '2' => 'SecondClassCarriage',
-             '3' => 'ThirdClassCarriage', '4' => 'CouchCarriage'}
-    car_type[id] if car_type.key?(id)
+      :side_bottom_places, :type)
   end
 end

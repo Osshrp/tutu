@@ -3,8 +3,10 @@
   .field
     p
     - if carriage.new_record?
-      = select_tag(:class_id,
-        options_for_select([['св', 1], ['купе', 2], ['плацкарт', 3], ['сидячий', 4]]))
+      = f.select(:type, options_for_select([['св', 'FirstClassCarriage'],
+                                            ['купе', 'SecondClassCarriage'],
+                                            ['плацкарт', 'ThirdClassCarriage'],
+                                            ['сидячий', 'CouchCarriage']]))
     - else
       strong Тип вагона:
       = carriage.car_type[carriage.type]
