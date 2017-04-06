@@ -10,10 +10,17 @@ class Carriage < ApplicationRecord
   scope :desc_ordered, -> { order(number: :desc) }
   scope :ordered, ->(train) { train.sort? ? asc_ordered : desc_ordered }
 
-  CAR_TYPE = { 'FirstClassCarriage' => 'св',
-               'SecondClassCarriage' => 'купе',
-               'ThirdClassCarriage' => 'плацкарт',
-               'CouchCarriage' => 'сидячий' }
+  SV_TYPE = 'св'
+  COUPE_TYPE = 'купе'
+  PLATZCARD_TYPE = 'плацкарт'
+  SITTING_TYPE = 'сидячий'
+
+  CAR_TYPES = {
+    'FirstClassCarriage'  => SV_TYPE,
+    'SecondClassCarriage' => COUPE_TYPE,
+    'ThirdClassCarriage'  => PLATZCARD_TYPE,
+    'CouchCarriage'       => SITTING_TYPE
+  }.freeze
 
   private
 

@@ -4,7 +4,7 @@ p
   = @carriage.number
 p
   strong Тип вагона:
-  = Carriage::CAR_TYPE[@carriage.type]
+  = Carriage::CAR_TYPES[@carriage.type]
 p
   = render @carriage.class.to_s.underscore, carriage: @carriage
 p
