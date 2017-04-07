@@ -16,10 +16,21 @@ p
   - if @route.railway_stations.empty?
     | Станций в маршруте нет
   - else
-    ul
-      - @route.railway_stations_routes.ordered.each do |station_in_route|
-        li
-          = link_to "#{station_in_route.station_index} #{station_in_route.railway_station.title}", station_in_route.railway_station
+    table
+      thead
+      tr
+        td width = '200px' Название
+        td  Позиция
+      tbody
+      - @route.railway_stations.ordered.each do |station|
+        tr
+          td = link_to station.title, station
+          td
+            = form_tag update_position_railway_station_path(station), method: :patch do
+              = number_field_tag :position, station.position_in(@route)
+              = hidden_field_tag :route_id, @route.id
+              = submit_tag 'Изменить'
+
 = link_to 'Редактировать', edit_route_path(@route)
 | \
 = link_to 'Назад', routes_path
