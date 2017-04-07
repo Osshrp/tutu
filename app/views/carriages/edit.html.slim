@@ -1,5 +1,5 @@
 h1 Изменение вагона
 = render 'form', carriage: @carriage
-= link_to 'Показать', carriage_path(@carriage)
+= link_to 'Показать', train_carriage_path(:train, @carriage)
 | \
-= link_to 'Назад', carriages_path
+= link_to 'Назад', train_carriages_path

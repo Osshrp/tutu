@@ -17,7 +17,7 @@ class CarriagesController < ApplicationController
     @carriage = Carriage.new(carriage_params)
 
     if @carriage.save
-      redirect_to edit_carriage_path(@carriage,
+      redirect_to edit_train_carriage_path(:train, @carriage,
         notice: 'Carriage was successfully created.')
     else
       render :new
