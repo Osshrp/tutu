@@ -15,11 +15,25 @@ class RailwayStation < ApplicationRecord
     station_in_route.update(station_index: position) if station_in_route
   end
 
+  def update_time(arrive_time, depart_time, route)
+    station_in_route = station_in_route(route)
+    station_in_route.update(arrive_time: arrive_time,
+      depart_time: depart_time) if station_in_route
+  end
+
   def position_in(route)
     station_in_route(route).try(:station_index)
   end
 
   def station_in_route(route)
     station_in_route ||= railway_stations_routes.where(route: route).first
+  end
+
+  def arrive_time_in(route)
+    station_in_route(route).try(:arrive_time)
+  end
+
+  def depart_time_in(route)
+    station_in_route(route).try(:depart_time)
   end
 end
