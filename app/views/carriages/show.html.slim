@@ -13,6 +13,6 @@ p
     = link_to "#{@carriage.train.number}", @carriage.train
   - else
     | Поезд не назначен
-= link_to 'Изменить', edit_train_carriage_path(:train, @carriage)
+= link_to 'Изменить', edit_carriage_path(@carriage)
 | \
-= link_to 'Назад', train_carriages_path
+= link_to 'Назад', train_carriages_path(@carriage.train)
