@@ -8,10 +8,6 @@ class Route < ApplicationRecord
 
   before_validation :set_name
 
-  def self.search_trains(start_station, last_station)
-    Train.through_station(start_station) && Train.through_station(last_station)
-  end
-
   private
 
   def set_name
@@ -23,8 +19,4 @@ class Route < ApplicationRecord
       errors.add(:base, "Route should contain at least 2 stations")
     end
   end
-
-  # def trains_on(start_station, last_station)
-  #
-  # end
 end

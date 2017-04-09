@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
   end
 
   def create
-    @trains = Route.search_trains(search_params[:start_station], search_params[:last_station])
+    @trains = Search.trains(search_params[:start_station], search_params[:last_station])
   end
 
   private
