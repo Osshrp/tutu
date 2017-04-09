@@ -3,8 +3,11 @@ h1 Поиск билета
 = form_tag search_path do
   .field
     = label :railway_station_id, "Начальная станция"
-    = collection_select :stations, :start_station_id, @railway_stations, :id, :title
+    = collection_select :stations, :start_station_id, RailwayStation.all, :id, :title
   .field
     = label :railway_station_id, "Конечная станция"
-    = collection_select :stations, :last_station_id, @railway_stations, :id, :title
+    = collection_select :stations, :last_station_id, RailwayStation.all, :id, :title
   = submit_tag 'Искать'
+- if @tains
+  - @trains.each do |train|
+    = train.number
