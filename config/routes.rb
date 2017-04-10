@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     patch :update_time, on: :member
   end
   resources :routes
+  resources :tickets
   resource :search, only: [:show, :create]
+
+  post '/tickets/purchase', to: 'tickets#purchase', as: :ticket_purchase
+
+
   # resources :carriages
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

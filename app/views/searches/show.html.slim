@@ -2,12 +2,28 @@ h1 Поиск билета
 
 = form_tag search_path do
   .field
-    = label :railway_station_id, "Начальная станция"
+    = label :start_station_id, "Начальная станция"
     = collection_select :stations, :start_station_id, RailwayStation.all, :id, :title
   .field
-    = label :railway_station_id, "Конечная станция"
-    = collection_select :stations, :last_station_id, RailwayStation.all, :id, :title
+    = label :end_station_id, "Конечная станция"
+    = collection_select :stations, :end_station_id, RailwayStation.all, :id, :title
   = submit_tag 'Искать'
-- if @tains
-  - @trains.each do |train|
-    = train.number
+- if @trains
+  table
+    thead
+      th Номер поезда
+      th Маршрут
+      th Время отправления
+      th Время прибытия
+    tbody
+      - @trains.each do |train|
+        tr
+          = form_tag ticket_purchase_path do
+            td = train.number
+            td = train.route.name
+            td = 2222222
+            td = 3333333
+            td = hidden_field_tag :train_id, train.id
+            td = hidden_field_tag :start_station_id, @start_station.id
+            td = hidden_field_tag :end_station_id, @end_station.id
+            td = submit_tag 'Купить'

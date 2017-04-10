@@ -20,18 +20,22 @@ p
       thead
       tr
         td width = '200px' Название
-        td Время прибытия Время отправления
+        td Поезд
+        td Время прибытия
+        td Время отправления
+        td
+        td
         td Позиция
       tbody
       - @route.railway_stations.ordered.each do |station|
         tr
           td = link_to station.title, station
-          td
-            = form_tag update_time_railway_station_path(station), method: :patch do
-              = date_field_tag :arrive_time, station.attr_in(@route, :arrive_time)
-              = date_field_tag :depart_time, station.attr_in(@route, :depart_time)
-              = hidden_field_tag :route_id, @route.id
-              = submit_tag 'Изменить'
+          = form_tag update_time_railway_station_path(station), method: :patch do
+            td  = select_tag 'train', options_from_collection_for_select(@route.trains, :id, :number)
+            td  = time_field_tag :arrive_time, station.attr_in(@route, :arrive_time)
+            td  = time_field_tag :depart_time, station.attr_in(@route, :depart_time)
+            td  = hidden_field_tag :route_id, @route.id
+            td  = submit_tag 'Изменить'
 
           td
             = form_tag update_position_railway_station_path(station), method: :patch do

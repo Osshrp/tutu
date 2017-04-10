@@ -17,6 +17,7 @@ class RailwayStation < ApplicationRecord
   end
 
   def update_time(arrive_time, depart_time, route)
+    byebug
     station_in_route = station_in_route(route)
     station_in_route.update(arrive_time: arrive_time,
       depart_time: depart_time) if station_in_route
