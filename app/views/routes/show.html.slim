@@ -31,7 +31,7 @@ p
         tr
           td = link_to station.title, station
           = form_tag update_time_railway_station_path(station), method: :patch do
-            td  = select_tag 'train', options_from_collection_for_select(@route.trains, :id, :number)
+            td  = select_tag 'train_id', options_from_collection_for_select(@route.trains, :id, :number)
             td  = time_field_tag :arrive_time, station.attr_in(@route, :arrive_time)
             td  = time_field_tag :depart_time, station.attr_in(@route, :depart_time)
             td  = hidden_field_tag :route_id, @route.id
