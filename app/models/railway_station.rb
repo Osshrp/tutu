@@ -16,20 +16,21 @@ class RailwayStation < ApplicationRecord
     station_in_route.update(station_index: position) if station_in_route
   end
 
-  def update_time(arrive_time, depart_time, route, train_id)
-    station_in_route = station_in_route(route, train_id)
+  def update_time(arrive_time, depart_time, route)
+    station_in_route = station_in_route(route)
     station_in_route.update(arrive_time: arrive_time,
       depart_time: depart_time) if station_in_route
   end
 
-  def station_in_route(route, train_id = nil)
-    station_in_route ||= RailwayStation.find_by_sql("select * from
-     railway_stations_routes inner join trains
-     on railway_stations_routes.route_id = trains.route_id
-     and trains.id = ?", train_id)
+  def station_in_route(route)
+    station_in_route ||= railway_stations_routes.where(route: route).first
   end
 
-  def attr_in(route, attr)
+  def time_in(route, attr)
     station_in_route(route).try(attr)
+  end
+
+  def position_in (route, position)
+    station_in_route(route).try(position)
   end
 end

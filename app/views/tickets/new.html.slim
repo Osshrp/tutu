@@ -6,8 +6,8 @@ h1 Билет на поезд
   .field
    = f.label :passport_number, 'Номер паспорта:'
    = f.text_field :passport_number
-   = f.hidden_field :train_id, value: @train.id
-   = f.hidden_field :start_station_id, value: @start_station.id
-   = f.hidden_field :end_station_id, value: @end_station.id
+   = f.hidden_field :train_id, value: train_id
+   = f.hidden_field :start_station_id, value: start_station_id
+   = f.hidden_field :end_station_id, value: end_station_id
   .field
    = f.submit 'Купить'

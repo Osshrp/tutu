@@ -18,12 +18,9 @@ h1 Поиск билета
     tbody
       - @trains.each do |train|
         tr
-          = form_tag ticket_purchase_path do
-            td = train.number
-            td = train.route.name
-            td = 2222222
-            td = 3333333
-            td = hidden_field_tag :train_id, train.id
-            td = hidden_field_tag :start_station_id, @start_station.id
-            td = hidden_field_tag :end_station_id, @end_station.id
-            td = submit_tag 'Купить'
+          td = train.number
+          td = train.route.name
+          td = 2222222
+          td = 3333333
+          td = link_to 'Купить', new_ticket_path(train_id: train.id,
+            start_station_id: @start_station.id, end_station_id: @end_station.id)

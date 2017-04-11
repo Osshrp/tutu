@@ -9,13 +9,16 @@ class TicketsController < ApplicationController
   end
 
   def create
-    user = User.where(name: 'test').first
-    @ticket.user_id = user
+    user = User.first
     @ticket = Ticket.new(ticket_params)
-
+    @ticket.user = user
+    @ticket.start_station = RailwayStation.find(params[:start_station_id])
+    @ticket.end_station = RailwayStation.find(params[:end_station_id])
+    @ticket.train = Train.find(params[:train_id])
     if @ticket.save
       redirect_to ticket_path(@ticket)
     else
+      byebug
       render :new
     end
   end

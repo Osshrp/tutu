@@ -20,26 +20,18 @@ p
       thead
       tr
         td width = '200px' Название
-        td Поезд
-        td Время прибытия
-        td Время отправления
-        td
-        td
-        td Позиция
+        td { colspan = 3 } Время прибытия
+        td { colspan = 3 } Время отправления
+        td { colspan = 2 } Позиция
       tbody
       - @route.railway_stations.ordered.each do |station|
         tr
           td = link_to station.title, station
-          = form_tag update_time_railway_station_path(station), method: :patch do
-            td  = select_tag 'train_id', options_from_collection_for_select(@route.trains, :id, :number)
-            td  = time_field_tag :arrive_time, station.attr_in(@route, :arrive_time)
-            td  = time_field_tag :depart_time, station.attr_in(@route, :depart_time)
-            td  = hidden_field_tag :route_id, @route.id
-            td  = submit_tag 'Изменить'
-
+          = render 'time', station: station, route: @route, attr: :arrive_time
+          = render 'time', station: station, route: @route, attr: :depart_time
           td
             = form_tag update_position_railway_station_path(station), method: :patch do
-              = number_field_tag :position, station.attr_in(@route, :station_index)
+              = number_field_tag :position, station.position_in(@route, :station_index)
               = hidden_field_tag :route_id, @route.id
               = submit_tag 'Изменить'
 
