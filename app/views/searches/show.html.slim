@@ -20,7 +20,7 @@ h1 Поиск билета
         tr
           td = train.number
           td = train.route.name
-          td = 2222222
-          td = 3333333
+          td = train.route.railway_stations_routes.where(route: train.route, railway_station: @start_station).first.depart_time
+          td = train.route.railway_stations_routes.where(route: train.route, railway_station: @end_station).first.arrive_time
           td = link_to 'Купить', new_ticket_path(train_id: train.id,
             start_station_id: @start_station.id, end_station_id: @end_station.id)
