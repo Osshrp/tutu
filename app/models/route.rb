@@ -8,6 +8,11 @@ class Route < ApplicationRecord
 
   before_validation :set_name
 
+  def station_time(station, method)
+    railway_stations_routes.where(route_id: id, railway_station_id: station.id)
+      .first.send(method)
+  end
+
   private
 
   def set_name
