@@ -3,7 +3,7 @@ class CarriagesController < ApplicationController
   before_action :set_train, only: [:index, :new, :create]
 
   def index
-    @carriages = Carriage.where(train: @train)
+    @carriages = @train.carriages
   end
 
   def show; end
@@ -51,8 +51,7 @@ class CarriagesController < ApplicationController
   end
 
   def carriage_params
-    params.require(:carriage).permit(:number, :train_id,
-      :upper_places, :bottom_places, :side_upper_places,
-      :side_bottom_places, :type)
+    params.require(:carriage).permit(:number, :upper_places, :bottom_places,
+      :side_upper_places, :side_bottom_places, :type)
   end
 end
