@@ -29,7 +29,7 @@ p
           = render 'time', station: station, route: @route, attr: :arrive_time
           = render 'time', station: station, route: @route, attr: :depart_time
           td
-            = form_tag update_position_railway_station_path(station), method: :patch do
+            = form_tag update_position_admin_railway_station_path(station), method: :patch do
               = number_field_tag :position, station.position_in(@route, :station_index)
               = hidden_field_tag :route_id, @route.id
               = submit_tag 'Изменить'

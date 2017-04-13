@@ -46,7 +46,7 @@ p
   ul
     - @train.carriages.ordered(@train).each do |carriage|
       li
-        = link_to "Вагон № #{carriage.number}" , [:admin, carriage]
+        = link_to "Вагон № #{carriage.number}" , [:admin, carriage.becomes(Carriage)]
 = link_to 'Добавить вагон', new_admin_train_carriage_path(@train)
 = link_to 'Редактировать', edit_admin_train_path(@train)
 | \
