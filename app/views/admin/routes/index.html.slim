@@ -1,0 +1,10 @@
+h1 Routes
+table
+  thead
+    tr
+      th Имя
+      th { colspan: 3 }
+  tbody
+    = render @routes
+br/
+= link_to 'Новый маршрут', new_admin_route_path

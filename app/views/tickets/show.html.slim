@@ -1,4 +1,6 @@
 h2 Билет
+p Билет купил:
+  #{@ticket.user.email}
 p
   strong поезд №
   = @ticket.train.number

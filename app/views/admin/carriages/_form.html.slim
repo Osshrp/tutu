@@ -1,0 +1,28 @@
+= form_for [:admin, @train, carriage.becomes(Carriage)] do |f|
+  = render 'common/errors', resource: carriage
+  .field
+    p
+    - if carriage.new_record?
+      = f.collection_select :type, Carriage::CAR_TYPES, :first, :last
+    - else
+      strong Тип вагона:
+      = Carriage::CAR_TYPES[carriage.type]
+
+  .field
+    = f.label :upper_places, 'Количество верхних мест'
+    = f.number_field :upper_places
+  .field
+    = f.label :bottom_places, 'Колличества нижних мест'
+    = f.number_field :bottom_places
+  .field
+    = f.label :side_upper_places, 'Колличества верхних боковых мест'
+    = f.number_field :side_upper_places
+  .field
+    = f.label :side_bottom_places, 'Колличества нижних боковых мест'
+    = f.number_field :side_bottom_places
+
+  .field
+    = f.label :train, 'Поезд'
+    = f.collection_select :train_id, Train.all, :id, :number
+  .actions
+    = f.submit 'Сохранить'
