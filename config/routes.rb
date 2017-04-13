@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
 
-  resources :tickets, only: [:new, :create, :show]
+  resources :tickets, only: [:index, :new, :create, :show, :destroy]
   resource :search, only: [:show, :create]
 
   root to: 'searches#show'

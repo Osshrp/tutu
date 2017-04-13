@@ -1,0 +1,7 @@
+h2 Купленные билеты:
+
+- @tickets.each do |ticket|
+  p Билет № #{ link_to "#{ticket.id}", admin_ticket_path(ticket)}
+    На имя: #{ticket.passenger_name}
+      Поезд № #{ticket.train.number}
+        #{ link_to 'Удалить', [:admin, ticket], method: :delete}
