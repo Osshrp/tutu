@@ -15,4 +15,4 @@ p
     | Поезд не назначен
 = link_to 'Изменить', edit_carriage_path(@carriage)
 | \
-= link_to 'Назад', carriages_path
+= link_to 'Назад', train_carriages_path(@carriage.train)

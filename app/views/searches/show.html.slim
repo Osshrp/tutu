@@ -1,0 +1,26 @@
+h1 Поиск билета
+
+= form_tag search_path do
+  .field
+    = label :start_station_id, "Начальная станция"
+    = collection_select :stations, :start_station_id, RailwayStation.all, :id, :title
+  .field
+    = label :end_station_id, "Конечная станция"
+    = collection_select :stations, :end_station_id, RailwayStation.all, :id, :title
+  = submit_tag 'Искать'
+- if @trains
+  table
+    thead
+      th Номер поезда
+      th Маршрут
+      th Время отправления
+      th Время прибытия
+    tbody
+      - @trains.each do |train|
+        tr
+          td = train.number
+          td = train.route.name
+          td = train.route.station_time(@start_station, :depart_time)
+          td = train.route.station_time(@end_station, :arrive_time)
+          td = link_to 'Купить', new_ticket_path(train_id: train.id,
+            start_station_id: @start_station.id, end_station_id: @end_station.id)

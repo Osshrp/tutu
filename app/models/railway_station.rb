@@ -5,11 +5,31 @@ class RailwayStation < ApplicationRecord
 
   validates :title, presence: true
 
-  # default_scoup(order: :id)
+  scope :ordered, -> { select('railway_stations.*,
+    railway_stations_routes.station_index')
+    .joins(:railway_stations_routes)
+    .order('railway_stations_routes.station_index').distinct }
+
 
   def update_position(position, route)
-    station_in_route = self.railway_stations_routes.where(route: route).first
-    station_in_route.station_index = position
-    station_in_route.save if station_in_route
+    station_in_route = station_in_route(route)
+    station_in_route.update(station_index: position) if station_in_route
+  end
+
+  def update_time(route, time)
+    station_in_route = station_in_route(route)
+    station_in_route.update(time) if station_in_route
+  end
+
+  def station_in_route(route)
+    station_in_route ||= railway_stations_routes.where(route: route).first
+  end
+
+  def time_in(route, attr)
+    station_in_route(route).try(attr)
+  end
+
+  def position_in (route, position)
+    station_in_route(route).try(position)
   end
 end

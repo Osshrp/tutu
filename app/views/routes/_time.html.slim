@@ -1,0 +1,4 @@
+= form_tag update_time_railway_station_path(station), method: :patch do
+  td  = datetime_field_tag attr, station.time_in(route, attr)
+  td  = hidden_field_tag :route_id, route.id
+  td  = submit_tag 'Изменить'
