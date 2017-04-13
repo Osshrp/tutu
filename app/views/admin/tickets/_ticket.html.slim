@@ -5,6 +5,5 @@ tr
   td = ticket.user.email
   td = ticket.passenger_name
   td = ticket.passport_number
-  td = link_to "Новый", new_admin_ticket_path
   td = link_to "Изменить", edit_admin_ticket_path(ticket)
   td = link_to "Удалить", [:admin, ticket], method: :delete

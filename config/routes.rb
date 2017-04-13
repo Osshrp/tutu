@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
 
   resources :tickets, only: [:index, :new, :create, :show, :destroy]
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     resources :routes
     resources :tickets
+    resources :resources, only: [:index]
   end
 
   # resources :carriages
