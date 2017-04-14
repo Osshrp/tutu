@@ -1,0 +1,75 @@
+ru:
+  common:
+    back: 'Назад'
+    show: 'Показать'
+    edit: 'Редактировать'
+    delete: 'Удалить'
+    create: 'Создать'
+    errors: 'При заполнении формы возникли ошибки'
+    route: 'Маршрут'
+    number: 'Номер'
+    carriages: 'Вагоны'
+    current_station: 'Текущая станция'
+    train_number: 'Поезд № '
+    carriage_type: 'Тип вагона'
+    shure?: 'Вы уверены?'
+    railway_stations: 'Станции'
+    trains: 'Поезда'
+    routes: 'Маршруты'
+    tickets: 'Билеты'
+    exit: 'Выйти'
+    enter: 'Войти'
+    admin_interface: 'Админка'
+  admin:
+    carriages:
+      index:
+        title: 'Вагоны'
+      edit:
+        edit: 'Изменение вагона'
+      new:
+        new: 'Новый вагон'
+      show:
+        carriage_number: 'Номер вагона '
+        carriage_type: 'Тип вагона '
+      first_class_carriage:
+        place_quantity: 'Количество мест '
+      second_class_carriage:
+        place_upper_quantity: 'Количество верхних мест '
+        place_bottom_quantity: 'Количество нижних мест '
+      third_class_carriage:
+        place_upper_quantity: 'Количество верхних мест '
+        place_bottom_quantity: 'Количество нижних мест '
+        place_side_upper_quantity: 'Количество верхних боковых мест '
+        place_side_bottom_quantity: 'Количество нижних боковых мест '
+      couch_carriage:
+        place_quantity: 'Количество сидячих мест '
+    trains:
+      index:
+        title: 'Поезда'
+        new_train: 'Новый поезд'
+      show:
+        number: 'Номер поезда'
+        empty_station: 'Станция не назначена'
+        empty_route: 'Маршрут не назначен'
+        second_class_carriages: 'Купейных вагонов: '
+        second_class_upper_places: 'Купейных верхних мест: '
+        second_class_bottom_places: 'Купейных нижних мест: '
+        third_class_carriages: 'Плацкартных вагонов: '
+        third_class_upper_places: 'Плацкартых верхних мест: '
+        third_class_bottom_places: 'Плацкартых нижних мест: '
+        third_class_side_upper_places: 'Плацкартых верхних боковых мест: '
+        third_class_side_bottom_places: 'Плацкартых нижних боковых мест: '
+        add_carriage: 'Добавить вагон'
+        carriage_number: 'Вагон №'
+    railway_stations:
+      index:
+        title: 'Название'
+        create: 'Новая станция'
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Измение станции'
+      form:
+        submit: '%{action} станцию'
+      show:
+        title: 'Название'

@@ -1,13 +1,15 @@
 h1 Поиск билета
 
-= form_tag search_path do
-  .field
-    = label :start_station_id, "Начальная станция"
-    = collection_select :stations, :start_station_id, RailwayStation.all, :id, :title
-  .field
-    = label :end_station_id, "Конечная станция"
-    = collection_select :stations, :end_station_id, RailwayStation.all, :id, :title
-  = submit_tag 'Искать'
+.row
+  = form_tag search_path do
+    .col-md-4
+      = label :start_station_id, "Начальная станция"
+      = select_tag :start_station_id, options_from_collection_for_select(@railway_stations, :id, :title), { class: 'form-control' }
+    .col-md-4
+      = label :end_station_id, "Конечная станция"
+      = select_tag :end_station_id, options_from_collection_for_select(@railway_stations, :id, :title), { class: 'form-control' }
+    .col-md-4
+      = submit_tag 'Искать', class: 'btn btn-primary'
 - if @trains
   table
     thead

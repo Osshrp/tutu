@@ -1,5 +1,5 @@
 tr
   td= train.number
-  td= link_to 'Show', [:admin, train]
-  td= link_to 'Edit', edit_admin_train_path(train)
-  td= link_to 'Destroy', [:admin, train], method: :delete, data: { confirm: 'Are you sure?' }
+  td= link_to t('common.show'), [:admin, train]
+  td= link_to t('common.edit'), edit_admin_train_path(train)
+  td= link_to t('common.delete'), [:admin, train], method: :delete, data: { confirm: 'Are you sure?' }

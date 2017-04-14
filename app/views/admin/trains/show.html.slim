@@ -1,53 +1,54 @@
 p
-  strong Номер поезда:
+  strong = t('.number')
   br
   = link_to "#{@train.number}", [:admin, @train]
 
 p
-  strong На станции
+  strong = t('common.current_station')
   br
   - if @train.current_station
     = link_to "#{@train.current_station.title}", [:admin, @train.current_station]
   - else
-    | Станция не назначена
+    = t('.empty_station')
 p
-  strong Маршрут
+  strong = t('common.route')
   br
   - if @train.route
     = link_to "#{@train.route.name}", [:admin, @train.route]
   - else
-    | Маршрут не назначен
+    = t('.empty_route')
 p
-  strong Купейных вагонов:
+  strong = t('.second_class_carriages')
   = @train.carriages_count('SecondClassCarriage')
 p
-  strong Купейных верхних мест:
+  strong = t('.second_class_upper_places')
   = @train.places[:second_class_upper_places]
 p
-  strong Купейных нижних мест:
+  strong = t('.second_class_bottom_places')
   = @train.places[:second_class_bottom_places]
 p
-  strong Плацкартных вагонов:
+  strong = t('.third_class_carriages')
   = @train.carriages_count('ThirdClassCarriage')
 p
-  strong Плацкартных верхних мест:
+  strong = t('.third_class_upper_places')
   = @train.places[:third_class_upper_places]
 p
-  strong Плацкартных нижних мест:
+  strong = t('.third_class_bottom_places')
   = @train.places[:third_class_bottom_places]
 p
-  strong Плацкартных боковых верхних мест:
+  strong = t('.third_class_side_upper_places')
   = @train.places[:third_class_side_upper_places]
 p
-strong Плацкартных боковых нижних мест:
+strong = t('.third_class_side_bottom_places')
 = @train.places[:third_class_side_buttom_places]
 p
   strong Вагоны
   ul
     - @train.carriages.ordered(@train).each do |carriage|
       li
-        = link_to "Вагон № #{carriage.number}" , [:admin, carriage.becomes(Carriage)]
-= link_to 'Добавить вагон', new_admin_train_carriage_path(@train)
-= link_to 'Редактировать', edit_admin_train_path(@train)
+        = link_to "#{t('.carriage_number')} #{carriage.number}", [:admin, carriage.becomes(Carriage)]
+= link_to t('.add_carriage'), new_admin_train_carriage_path(@train)
+| \ 
+= link_to t('common.edit'), edit_admin_train_path(@train)
 | \
-= link_to 'Назад', admin_trains_path
+= link_to t('common.back'), admin_trains_path

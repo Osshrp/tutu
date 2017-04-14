@@ -1,18 +1,17 @@
-p#notice= notice
 p
-  strong Номер вагона:
+  strong = t('.carriage_number')
   = @carriage.number
 p
-  strong Тип вагона:
+  strong = t('.carriage_type')
   = Carriage::CAR_TYPES[@carriage.type]
 p
   = render @carriage.class.to_s.underscore, carriage: @carriage
 p
-  strong Поезд
+  strong = t('common.train_number')
   - if @carriage.train
     = link_to "#{@carriage.train.number}", [:admin, @carriage.train]
   - else
     | Поезд не назначен
-= link_to 'Изменить', edit_admin_carriage_path(@carriage)
+= link_to t('common.edit'), edit_admin_carriage_path(@carriage)
 | \
-= link_to 'Назад', admin_train_carriages_path(@carriage.train)
+= link_to t('common.back'), admin_train_carriages_path(@carriage.train)
