@@ -1,0 +1,13 @@
+p.notice#notice
+  = notice
+p.alert#alert
+  = alert
+
+- if user_signed_in?
+  = link_to "Выйти", destroy_user_session_path, method: :delete
+  p Привет #{current_user.first_name}!
+- else
+  = link_to "Войти", new_user_session_path
+
+= yield
+= render 'layouts/footer'

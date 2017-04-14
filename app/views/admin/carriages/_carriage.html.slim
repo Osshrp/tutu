@@ -1,0 +1,7 @@
+- @carriages.each do |carriage|
+  tr
+    td= link_to "#{carriage.number}", admin_carriage_path(carriage)
+    td= link_to "#{carriage.train.number}", [:admin, carriage.train]
+    td= link_to 'Показать', admin_carriage_path(carriage)
+    td= link_to 'Изменить', edit_admin_carriage_path(carriage)
+    td= link_to 'Удалить', admin_carriage_path(carriage), method: :delete, data: { confirm: 'Вы уверены?' }

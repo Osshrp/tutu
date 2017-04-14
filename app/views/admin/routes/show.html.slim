@@ -1,0 +1,39 @@
+p
+  strong Имя:
+  = @route.name
+p
+  strong Поезда на маршруте:
+  - if @route.trains.empty?
+    | Поездов на маршруте нет
+  - else
+    ul
+      - @route.trains.each do |train|
+        li
+          = link_to "Поезд №#{train.number}", [:admin, train]
+p
+  strong Станции маршрута:
+  - if @route.railway_stations.empty?
+    | Станций в маршруте нет
+  - else
+    table
+      thead
+      tr
+        td width = '200px' Название
+        td { colspan = 3 } Время прибытия
+        td { colspan = 3 } Время отправления
+        td { colspan = 2 } Позиция
+      tbody
+      - @route.railway_stations.ordered.each do |station|
+        tr
+          td = link_to station.title, [:admin, station]
+          = render 'time', station: station, route: @route, attr: :arrive_time
+          = render 'time', station: station, route: @route, attr: :depart_time
+          td
+            = form_tag update_position_admin_railway_station_path(station), method: :patch do
+              = number_field_tag :position, station.position_in(@route, :station_index)
+              = hidden_field_tag :route_id, @route.id
+              = submit_tag 'Изменить'
+
+= link_to 'Редактировать', edit_admin_route_path(@route)
+| \
+= link_to 'Назад', admin_routes_path
