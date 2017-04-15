@@ -14,6 +14,7 @@ ru:
     carriage_type: 'Тип вагона'
     shure?: 'Вы уверены?'
     railway_stations: 'Станции'
+    train: 'Поезд'
     trains: 'Поезда'
     routes: 'Маршруты'
     tickets: 'Билеты'
@@ -25,6 +26,7 @@ ru:
     buy: 'Купить'
     full_name: 'ФИО'
     save: 'Сохранить'
+    number: 'Номер'
   admin:
     carriages:
       index:
@@ -82,9 +84,23 @@ ru:
         submit: '%{action} станцию'
       show:
         title: 'Название'
+    routes:
+      index:
+        name: 'Имя'
+        new_route: 'Новый маршрут'
+      show:
+        trains: 'Поезда на маршруте'
+        stations: 'Станции на маршруте'
+        title: 'Название'
+        arrive_time: 'Время прибытия'
+        depart_time: 'Время отправления'
+        position: 'Позиция'
+        edit: 'Изменить'
+      time:
+        edit: 'Изменить'
   searches:
     show:
-      arrive_time: 'Время врибытия'
+      arrive_time: 'Время прибытия'
       depart_time: 'Время отправления'
       start_station: 'Начальная станция'
       end_station: 'Конечная станция'

@@ -5,7 +5,7 @@
     = f.text_field :name, class: 'form-control'
 
   .form-group
-    = f.label :railway_station_ids, "Текущая станция"
+    = f.label :railway_station_ids, t('common.current_station')
     = f.collection_select :railway_station_ids,
       RailwayStation.all, :id, :title, {}, { multiple: true, class: 'form-control' }
   .actions

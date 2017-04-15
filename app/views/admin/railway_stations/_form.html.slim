@@ -4,4 +4,6 @@
     = f.label :title
     = f.text_field :title, class: 'form-control'
   .form-group
-    = f.submit t('.submit', action: @railway_station.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-primary'
+    = f.submit t('.submit',
+      action: @railway_station.new_record? ? 'Создать' : 'Изменить'),
+        class: 'btn btn-primary'
