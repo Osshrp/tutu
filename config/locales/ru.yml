@@ -17,9 +17,13 @@ ru:
     trains: 'Поезда'
     routes: 'Маршруты'
     tickets: 'Билеты'
+    ticket: 'Билет'
     exit: 'Выйти'
     enter: 'Войти'
     admin_interface: 'Админка'
+    search: 'Найти'
+    buy: 'Купить'
+    full_name: 'ФИО'
   admin:
     carriages:
       index:
@@ -73,3 +77,14 @@ ru:
         submit: '%{action} станцию'
       show:
         title: 'Название'
+  searches:
+    show:
+      arrive_time: 'Время врибытия'
+      depart_time: 'Время отправления'
+      start_station: 'Начальная станция'
+      end_station: 'Конечная станция'
+  tickets:
+    new:
+      full_name: 'ФИО'
+    show:
+      ticket_buy: 'Билет купил'

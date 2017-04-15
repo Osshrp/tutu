@@ -1,9 +1,12 @@
-h2 Билет
-p Билет купил:
-  #{@ticket.user.email}
-p
-  strong поезд №
-  = @ticket.train.number
-p
-  strong ФИО:
-  = @ticket.passenger_name
+.panel.panel-info.col-md-6
+  .panel-heading
+    h3 = t('common.ticket')
+  .panel-body
+    p = t('.ticket_buy')
+      #{@ticket.user.email}
+    p
+      strong = t('common.train_number')
+      = @ticket.train.number
+    p
+      strong = t('common.full_name')
+      = @ticket.passenger_name

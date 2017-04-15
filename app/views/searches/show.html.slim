@@ -3,26 +3,33 @@ h1 Поиск билета
 .row
   = form_tag search_path do
     .col-md-4
-      = label :start_station_id, "Начальная станция"
-      = select_tag :start_station_id, options_from_collection_for_select(@railway_stations, :id, :title), { class: 'form-control' }
-    .col-md-4
-      = label :end_station_id, "Конечная станция"
-      = select_tag :end_station_id, options_from_collection_for_select(@railway_stations, :id, :title), { class: 'form-control' }
-    .col-md-4
-      = submit_tag 'Искать', class: 'btn btn-primary'
+      = label :start_station_id, t('.start_station'), class: 'control-label'
+
+      = select_tag :start_station_id,
+        options_from_collection_for_select(@railway_stations, :id, :title),
+          { class: 'form-control' }
+    .col-md-4.form-group
+      = label :end_station_id, t('.end_station'), class: 'control-label'
+      = select_tag :end_station_id,
+        options_from_collection_for_select(@railway_stations, :id, :title),
+          { class: 'form-control' }
+    .col-md-6
+      = submit_tag t('common.search'), class: 'btn btn-primary'
 - if @trains
-  table
-    thead
-      th Номер поезда
-      th Маршрут
-      th Время отправления
-      th Время прибытия
-    tbody
-      - @trains.each do |train|
-        tr
-          td = train.number
-          td = train.route.name
-          td = train.route.station_time(@start_station, :depart_time)
-          td = train.route.station_time(@end_station, :arrive_time)
-          td = link_to 'Купить', new_ticket_path(train_id: train.id,
-            start_station_id: @start_station.id, end_station_id: @end_station.id)
+  .row
+    .col-md-12
+      table { class='table table-hover' }
+        thead
+          th = t('common.train_number')
+          th = t('common.route')
+          th = t('.depart_time')
+          th = t('.arrive_time')
+        tbody
+          - @trains.each do |train|
+            tr
+              td = train.number
+              td = train.route.name
+              td = train.route.station_time(@start_station, :depart_time)
+              td = train.route.station_time(@end_station, :arrive_time)
+              td = link_to t('common.buy'), new_ticket_path(train_id: train.id,
+                start_station_id: @start_station.id, end_station_id: @end_station.id)
