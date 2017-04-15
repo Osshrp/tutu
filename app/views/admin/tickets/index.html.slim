@@ -1,13 +1,13 @@
-h2 Билеты:
+h2 = t('common.tickets')
 table.table.table-hover
   thead
     tr
-      th Номер
-      th Маршрут
-      th Поезд №
-      th Пользователь
-      th ФИО
-      th Паспорт
+      th = t('common.number')
+      th = t('common.route')
+      th = t('common.train_number')
+      th = t('common.user')
+      th = t('common.full_name')
+      th = t('commin.passport')
   tbody
     = render @tickets
-= link_to "Новый билет", new_admin_ticket_path
+= link_to t('.new_ticket'), new_admin_ticket_path
