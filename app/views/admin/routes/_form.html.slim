@@ -1,11 +1,13 @@
 = form_for [:admin, route] do |f|
   = render 'common/errors', resource: route
-  .field
+  .form-group
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, class: 'form-control'
 
-  .field
+  .form-group
     = f.label :railway_station_ids, "Текущая станция"
-    = f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true }
+    = f.collection_select :railway_station_ids,
+      RailwayStation.all, :id, :title, {}, { multiple: true, class: 'form-control' }
   .actions
-    = f.submit "#{ route.new_record? ? 'Создать' : 'Изменить' }"
+    = f.submit "#{ route.new_record? ? 'Создать' : 'Изменить' }",
+      class: 'btn btn-primary'

@@ -24,6 +24,7 @@ ru:
     search: 'Найти'
     buy: 'Купить'
     full_name: 'ФИО'
+    save: 'Сохранить'
   admin:
     carriages:
       index:
@@ -65,6 +66,10 @@ ru:
         third_class_side_bottom_places: 'Плацкартых нижних боковых мест: '
         add_carriage: 'Добавить вагон'
         carriage_number: 'Вагон №'
+      edit:
+      new:
+      form:
+        car_numbering: 'Нумерация вагонов:'
     railway_stations:
       index:
         title: 'Название'

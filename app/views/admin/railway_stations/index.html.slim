@@ -1,5 +1,5 @@
 h1 = t('common.railway_stations')
-table
+table.table.table-hover
   thead
     tr
       th = t('.title')
@@ -7,4 +7,4 @@ table
   tbody
     = render @railway_stations
 br/
-= link_to t('.create'), new_admin_railway_station_path
+= link_to t('.create'), new_admin_railway_station_path, class: 'btn btn-primary'

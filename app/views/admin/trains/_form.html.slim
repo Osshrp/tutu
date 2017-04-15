@@ -1,16 +1,18 @@
 = form_for [:admin, train] do |f|
   = render 'common/errors', resource: train
-  .field
+  .form-group
     = f.label :number
-    = f.text_field :number
-  .field
-    = f.label :current_station, "Текущая станция"
-    = f.collection_select :current_station_id, RailwayStation.all, :id, :title
-  .field
-    = f.label :route, "Маршрут"
-    = f.collection_select :route_id, Route.all, :id, :name
-  .field
-    = f.label :sort, "Нумерация вагонов:"
-    = f.select(:sort, options_for_select([['с головы', true], ['с хвоста', false]]))
-  .actions
-    = f.submit
+    = f.text_field :number, class: 'form-control'
+  .form-group
+    = f.label :current_station, t('common.current_station')
+    = f.collection_select :current_station_id, RailwayStation.all, :id, :title,
+      {}, { class: 'form-control' }
+  .form-group
+    = f.label :route, t('common.route')
+    = f.collection_select :route_id, Route.all, :id, :name, {}, { class: 'form-control' }
+  .form-group
+    = f.label :sort, t('.car_numbering')
+    = f.select(:sort, options_for_select([['с головы', true], ['с хвоста', false]]),
+      {}, { class: 'form-control'} )
+  .form-group
+    = f.submit t('common.edit'), class: 'btn btn-primary'

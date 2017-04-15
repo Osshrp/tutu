@@ -1,21 +1,26 @@
 = form_for [:admin, ticket] do |f|
-  .field
+  .form-group
     = f.label :user_id, "Пользователь:"
-    = f.collection_select :user_id, User.all, :id, :email
-  .field
+    = f.collection_select :user_id, User.all, :id, :email, {},
+      { class: 'form-control' }
+  .form-group
     = f.label :train_id, "Поезд:"
-    = f.collection_select :train_id, Train.all, :id, :number
-  .field
+    = f.collection_select :train_id, Train.all, :id, :number, {},
+      { class: 'form-control' }
+  .form-group
     = f.label :start_station_id, "Начальная станция:"
-    = f.collection_select :start_station_id, RailwayStation.all, :id, :title
-  .field
+    = f.collection_select :start_station_id, @stations, :id, :title, {},
+      { class: 'form-control' }
+  .form-group
     = f.label :end_station_id, "Конечная станция:"
-    = f.collection_select :end_station_id, RailwayStation.all, :id, :title
-  .field
+    = f.collection_select :end_station_id, @stations, :id, :title, {},
+      { class: 'form-control' }
+  .form-group
     = f.label :passenger_name, "ФИО:"
-    = f.text_field :passenger_name
-  .field
+    = f.text_field :passenger_name, class: 'form-control'
+  .form-group
    = f.label :passport_number, 'Номер паспорта:'
-   = f.text_field :passport_number
-  .field
-   = f.submit "#{ticket.new_record? ? 'Создать' : 'Изменить'}"
+   = f.text_field :passport_number, class: 'form-control'
+  .form-group
+   = f.submit "#{ticket.new_record? ? 'Создать' : 'Изменить'}",
+     class: 'btn btn-primary'

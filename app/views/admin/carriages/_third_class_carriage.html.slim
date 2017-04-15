@@ -1,11 +1,16 @@
-strong = t('.place_upper_quantity')
-= carriage.upper_places
-br
-strong = t('.place_bottom_quantity')
-= carriage.bottom_places
-br
-strong = t('.place_side_upper_quantity')
-= carriage.side_upper_places
-br
-strong = t('.place_side_bottom_quantity')
-= carriage.side_bottom_places
+li.list-group-item
+  strong = t('.place_upper_quantity')
+  span.badge
+    = carriage.upper_places
+li.list-group-item
+  strong = t('.place_bottom_quantity')
+  span.badge
+    = carriage.bottom_places
+li.list-group-item
+  strong = t('.place_side_upper_quantity')
+  span.badge
+    = carriage.side_upper_places
+li.list-group-item
+  strong = t('.place_side_bottom_quantity')
+  span.badge
+    = carriage.side_bottom_places
