@@ -1,7 +1,13 @@
 h2 Купленные билеты:
 
-- @tickets.each do |ticket|
-  p Билет № #{ link_to "#{ticket.id}", admin_ticket_path(ticket)}
-    На имя: #{ticket.passenger_name}
-      Поезд № #{ticket.train.number}
-        #{ link_to 'Удалить', [:admin, ticket], method: :delete}
+table.table.table-hover
+  thead
+    tr
+      th = t('common.number')
+      th = t('common.route')
+      th = t('common.train_number')
+      th = t('common.user')
+      th = t('common.full_name')
+      th = t('common.passport')
+  tbody
+    = render @tickets
