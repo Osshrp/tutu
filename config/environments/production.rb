@@ -86,5 +86,5 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: "intense-temple-27407.herokuapp.com" }
   config.action_mailer.delivery_method = :postmark
-  config.action.mailer.postmark_settings = { api_token: ENV['POSTMARK_API_TOKEN'] }
+  # config.action.mailer.postmark_settings = { api_token: ENV['POSTMARK_API_TOKEN'] }
 end
