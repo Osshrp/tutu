@@ -1,18 +1,20 @@
-p#notice= notice
-p
-  strong Номер вагона:
-  = @carriage.number
-p
-  strong Тип вагона:
-  = Carriage::CAR_TYPES[@carriage.type]
-p
+ul.list-grout
+  li.list-group-item
+    strong = t('.carriage_number')
+    span.badge
+      = @carriage.number
+  li.list-group-item
+    strong = t('.carriage_type')
+    span.badge
+      = Carriage::CAR_TYPES[@carriage.type]
   = render @carriage.class.to_s.underscore, carriage: @carriage
-p
-  strong Поезд
-  - if @carriage.train
-    = link_to "#{@carriage.train.number}", [:admin, @carriage.train]
-  - else
-    | Поезд не назначен
-= link_to 'Изменить', edit_admin_carriage_path(@carriage)
+  li.list-group-item
+    strong = t('common.train_number')
+    span.badge
+      - if @carriage.train
+        = link_to "#{@carriage.train.number}", [:admin, @carriage.train]
+      - else
+        | Поезд не назначен
+= link_to t('common.edit'), edit_admin_carriage_path(@carriage)
 | \
-= link_to 'Назад', admin_train_carriages_path(@carriage.train)
+= link_to t('common.back'), admin_train_carriages_path(@carriage.train)

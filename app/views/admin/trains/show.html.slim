@@ -1,53 +1,63 @@
-p
-  strong Номер поезда:
-  br
-  = link_to "#{@train.number}", [:admin, @train]
+ul.list-group
+  li.list-group-item
+    strong = t('.number')
+    span.badge
+      = link_to "#{@train.number}", [:admin, @train]
+  li.list-group-item
+    strong = t('common.current_station')
+    span.badge
+      - if @train.current_station
+        = link_to "#{@train.current_station.title}", [:admin, @train.current_station]
+      - else
+        = t('.empty_station')
+  li.list-group-item
+    strong = t('common.route')
+    span.badge
+      - if @train.route
+        = link_to "#{@train.route.name}", [:admin, @train.route]
+      - else
+        = t('.empty_route')
+  li.list-group-item
+    strong = t('.second_class_carriages')
+    span.badge
+      = @train.carriages_count('SecondClassCarriage')
+  li.list-group-item
+    strong = t('.second_class_upper_places')
+    span.badge
+      = @train.places[:second_class_upper_places]
+  li.list-group-item
+    strong = t('.second_class_bottom_places')
+    span.badge
+      = @train.places[:second_class_bottom_places]
+  li.list-group-item
+    strong = t('.third_class_carriages')
+    span.badge
+      = @train.carriages_count('ThirdClassCarriage')
+  li.list-group-item
+    strong = t('.third_class_upper_places')
+    span.badge
+      = @train.places[:third_class_upper_places]
+  li.list-group-item
+    strong = t('.third_class_bottom_places')
+    span.badge
+      = @train.places[:third_class_bottom_places]
+  li.list-group-item
+    strong = t('.third_class_side_upper_places')
+    span.badge
+      = @train.places[:third_class_side_upper_places]
+  li.list-group-item
+    strong = t('.third_class_side_bottom_places')
+    span.badge
+      = @train.places[:third_class_side_buttom_places]
 
 p
-  strong На станции
-  br
-  - if @train.current_station
-    = link_to "#{@train.current_station.title}", [:admin, @train.current_station]
-  - else
-    | Станция не назначена
-p
-  strong Маршрут
-  br
-  - if @train.route
-    = link_to "#{@train.route.name}", [:admin, @train.route]
-  - else
-    | Маршрут не назначен
-p
-  strong Купейных вагонов:
-  = @train.carriages_count('SecondClassCarriage')
-p
-  strong Купейных верхних мест:
-  = @train.places[:second_class_upper_places]
-p
-  strong Купейных нижних мест:
-  = @train.places[:second_class_bottom_places]
-p
-  strong Плацкартных вагонов:
-  = @train.carriages_count('ThirdClassCarriage')
-p
-  strong Плацкартных верхних мест:
-  = @train.places[:third_class_upper_places]
-p
-  strong Плацкартных нижних мест:
-  = @train.places[:third_class_bottom_places]
-p
-  strong Плацкартных боковых верхних мест:
-  = @train.places[:third_class_side_upper_places]
-p
-strong Плацкартных боковых нижних мест:
-= @train.places[:third_class_side_buttom_places]
-p
-  strong Вагоны
-  ul
-    - @train.carriages.ordered(@train).each do |carriage|
-      li
-        = link_to "Вагон № #{carriage.number}" , [:admin, carriage.becomes(Carriage)]
-= link_to 'Добавить вагон', new_admin_train_carriage_path(@train)
-= link_to 'Редактировать', edit_admin_train_path(@train)
+  strong = t('common.carriages')
+ul.list-group
+  - @train.carriages.ordered(@train).each do |carriage|
+    = link_to "#{t('.carriage_number')} #{carriage.number}",
+      [:admin, carriage.becomes(Carriage)], class: 'list-group-item'
+= link_to t('.add_carriage'), new_admin_train_carriage_path(@train)
 | \
-= link_to 'Назад', admin_trains_path
+= link_to t('common.edit'), edit_admin_train_path(@train)
+| \
+= link_to t('common.back'), admin_trains_path

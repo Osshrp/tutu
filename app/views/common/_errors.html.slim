@@ -1,8 +1,7 @@
 - if resource.errors.any?
   #error_explanation
     h2
-      = pluralize(resource.errors.count, "error")
-      | prohibited this resource from being saved:
+      = t('common.errors')
     ul
       - resource.errors.full_messages.each do |message|
         li= message

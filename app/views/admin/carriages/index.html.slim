@@ -1,11 +1,11 @@
-h1 Вагоны
-table
+h1 = t('.title')
+table.table.table-hover
   thead
     tr
-      th Номер
-      th Поезд
+      th = t('common.number')
+      th = t('common.train')
       th { colspan: 3 }
   tbody
     = render 'carriage', collection: @carriages
 br/
-= link_to 'Новый вагон', new_admin_train_carriage_path
+= link_to t('admin.carriages.new.new'), new_admin_train_carriage_path

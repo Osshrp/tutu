@@ -1,6 +1,7 @@
 class Admin::TicketsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_stations, only: [:new, :edit]
 
   def index
     @tickets = Ticket.all
@@ -48,5 +49,9 @@ class Admin::TicketsController < ApplicationController
 
   def set_ticket
     @ticket = Ticket.find(params[:id])
+  end
+
+  def set_stations
+    @stations = RailwayStation.all
   end
 end

@@ -1,7 +1,9 @@
 = form_for [:admin, railway_station] do |f|
   = render 'common/errors', resource: railway_station
-  .field
+  .form-group
     = f.label :title
-    = f.text_field :title
-  .actions
-    = f.submit "#{ railway_station.new_record? ? 'Создать' : 'Изменить' }"
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.submit t('.submit',
+      action: @railway_station.new_record? ? 'Создать' : 'Изменить'),
+        class: 'btn btn-primary'

@@ -1,0 +1,24 @@
+ru:
+  activerecord:
+    models:
+      railway_station: 'Станция'
+      train: 'Поезд'
+      user: 'Пользователь'
+    attributes:
+      railway_station:
+        title: 'Назввание'
+      train:
+        number: 'Номер'
+      user:
+        first_name: 'Имя'
+        second_name: 'Фамилия'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+    errors:
+      messages:
+        blank: 'не может быть пустым'
+        too_short: 'не достаточной длины'
+        too_long: 'слишком длинное'
+        wrong_length: 'не верной длины'
+        taken: 'уже есть'
+        confirmation: 'не совпадает с паролем'

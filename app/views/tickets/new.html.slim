@@ -1,13 +1,14 @@
 h1 Билет на поезд
-= form_for @ticket do |f|
-  .field
-    = f.label :passenger_name, "ФИО:"
-    = f.text_field :passenger_name
-  .field
-   = f.label :passport_number, 'Номер паспорта:'
-   = f.text_field :passport_number
-   = f.hidden_field :train_id, value: @train.id
-   = f.hidden_field :start_station_id, value: params[:start_station_id]
-   = f.hidden_field :end_station_id, value: params[:end_station_id]
-  .field
-   = f.submit 'Купить'
+.row
+  = form_for @ticket do |f|
+    .col-md-7.form-group
+      = f.label :passenger_name, t('.full_name'), class: 'control-label'
+      = f.text_field :passenger_name, class: 'form-control'
+    .col-md-7.form-group
+     = f.label :passport_number, 'Номер паспорта:', class: 'control-label'
+     = f.text_field :passport_number, class: 'form-control'
+     = f.hidden_field :train_id, value: @train.id
+     = f.hidden_field :start_station_id, value: params[:start_station_id]
+     = f.hidden_field :end_station_id, value: params[:end_station_id]
+    .col-md-7
+     = f.submit t('common.buy'), class: 'btn btn-primary'

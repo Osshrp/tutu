@@ -1,7 +1,8 @@
-p#notice= notice
-p
-  strong Title:
-  = @railway_station.title
-= link_to 'Edit', edit_admin_railway_station_path(@railway_station)
+.panel.panel-primary
+  .panel-heading
+    strong = t('.title')
+  .panel-body
+    = @railway_station.title
+= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station)
 | \
-= link_to 'Back', admin_railway_stations_path
+= link_to t('common.back'), admin_railway_stations_path

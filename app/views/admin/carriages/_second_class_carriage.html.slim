@@ -1,5 +1,8 @@
-strong Количество верхних мест:
-= carriage.upper_places
-br
-strong Количество нижних мест:
-= carriage.bottom_places
+li.list-group-item
+  strong = t('.place_upper_quantity')
+  span.badge
+    = carriage.upper_places
+li.list-group-item
+  strong = t('.place_bottom_quantity')
+  span.badge
+    = carriage.bottom_places
