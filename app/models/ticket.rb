@@ -6,7 +6,7 @@ class Ticket < ApplicationRecord
 
   validates :passenger_name, :passport_number, presence: true
 
-  after_create :send__buy_notification
+  after_create :send_buy_notification
   after_destroy :send_delete_notification
 
   private

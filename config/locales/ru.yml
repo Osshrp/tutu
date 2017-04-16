@@ -120,3 +120,8 @@ ru:
     form:
       start_station: 'Начальная станция'
       end_station: 'Конечная станция'
+  tickets_mailer:
+    buy_ticket:
+      subject: 'Вы купили билет'
+    delete_ticket:
+      subject: 'Вы отказались от покупки билета'
