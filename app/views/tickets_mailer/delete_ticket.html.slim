@@ -1,3 +1,3 @@
-p Привет #{@user.first_name}
-p Вы отменили покупку билета по маршруту: #{@ticket.train.route.name}
-p Посмотреть все свои билеты вы можете #{link_to 'здесь', tickets_url}
+p #{t('common.hi')} #{@user.first_name }
+p #{t('.reject')} #{@ticket.train.route.name}
+p #{t('.show_tickets')} #{link_to t('common.here'), tickets_url}

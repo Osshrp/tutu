@@ -25,8 +25,7 @@ p
       - @route.railway_stations.ordered.each do |station|
         tr
           td = link_to station.title, [:admin, station]
-          = render 'time', station: station, route: @route, attr: :arrive_time
-          = render 'time', station: station, route: @route, attr: :depart_time
+          = render 'time', station: station, route: @route, arrive_time: :arrive_time, depart_time: :depart_time
           td
             = form_tag update_position_admin_railway_station_path(station), method: :patch do
               .col-md-4

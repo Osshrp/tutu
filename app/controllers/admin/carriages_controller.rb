@@ -16,6 +16,7 @@ class Admin::CarriagesController < Admin::BaseController
 
   def create
     @carriage = Carriage.new(carriage_params)
+    @carriage.train_id = params[:train_id]
 
     if @carriage.save
       redirect_to edit_admin_carriage_path(@carriage,

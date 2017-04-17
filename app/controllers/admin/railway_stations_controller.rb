@@ -45,8 +45,8 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def update_time
     @route = Route.find(params[:route_id])
-    @railway_station.update_time(@route, arrive_time: params[:arrive_time],
-      depart_time: params[:depart_time])
+    @railway_station.update_time(@route, params[:arrive_time],
+      params[:depart_time])
     redirect_to [:admin, @route]
   end
 

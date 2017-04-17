@@ -1,4 +1,4 @@
-p Привет #{@user.first_name}
-p Вы купили билет по маршруту: #{@ticket.train.route.name}
-p Посмотреть билет вы можете #{link_to 'здесь', @ticket}
-p Посмотреть все свои билеты вы можете #{link_to 'здесь', tickets_url}
+p #{t('common.hi')} #{@user.first_name}
+p #{t('.buy')} #{@ticket.train.route.name}
+p #{t('.show_ticket')} #{link_to t('common.here'), @ticket}
+p #{t('.show_tickets')} #{link_to t('common.here'), tickets_url}
