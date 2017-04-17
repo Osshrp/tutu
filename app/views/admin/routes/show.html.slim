@@ -18,9 +18,9 @@ p
       thead
       tr
         td width = '200px' = t('.title')
-        td { colspan = 3 } = t('.arrive_time')
+        td = t('.arrive_time')
         td { colspan = 3 } = t('.depart_time')
-        td { colspan = 2 } = t('.position')
+        td = t('.position')
       tbody
       - @route.railway_stations.ordered.each do |station|
         tr

@@ -7,4 +7,5 @@ table.table.table-hover
   tbody
     = render @railway_stations
 br/
-= link_to t('.create'), new_admin_railway_station_path, class: 'btn btn-primary'
+= link_to t('.create'), new_admin_railway_station_path, class: 'btn btn-primary',
+  role: 'button'
