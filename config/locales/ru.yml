@@ -29,6 +29,8 @@ ru:
     user: 'Пользователь'
     passport: 'Паспорт'
     passport_number: 'Номер паспорта'
+    hi: 'Привет'
+    here: 'Здесь'
   admin:
     carriages:
       index:
@@ -120,3 +122,13 @@ ru:
     form:
       start_station: 'Начальная станция'
       end_station: 'Конечная станция'
+  tickets_mailer:      
+    delete_ticket:
+      subject: 'Вы отказались от покупки билета'
+      reject: 'Вы отменили покупку билета по маршруту:'
+      show_tickets: 'Посмотреть все свои билеты вы можете'
+    buy_ticket:
+      subject: 'Вы купили билет'
+      buy: 'Вы купили билет по маршруту:'
+      show_ticket: Посмотреть билет вы можете
+      show_tickets: Посмотреть все свои билеты вы можете

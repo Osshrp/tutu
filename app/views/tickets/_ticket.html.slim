@@ -1,0 +1,8 @@
+tr
+  td = link_to "#{ticket.id}", ticket_path(ticket)
+  td = ticket.train.route.name
+  td = ticket.train.number
+  td = ticket.user.email
+  td = ticket.passenger_name
+  td = ticket.passport_number
+  td = link_to t('common.delete'), ticket, method: :delete

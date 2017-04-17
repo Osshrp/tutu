@@ -7,4 +7,5 @@ table.table.table-hover
   tbody
     = render @routes
 br/
-= link_to t('.new_route'), new_admin_route_path
+= link_to t('.new_route'), new_admin_route_path, class: 'btn btn-primary',
+  role: 'button'

@@ -16,17 +16,17 @@ class RailwayStation < ApplicationRecord
     station_in_route.update(station_index: position) if station_in_route
   end
 
-  def update_time(route, time)
+  def update_time(route, arrive_time, depart_time)
     station_in_route = station_in_route(route)
-    station_in_route.update(time) if station_in_route
+    station_in_route.update(arrive_time: arrive_time, depart_time: depart_time) if station_in_route
   end
 
   def station_in_route(route)
     station_in_route ||= railway_stations_routes.where(route: route).first
   end
 
-  def time_in(route, attr)
-    station_in_route(route).try(attr)
+  def time_in(route, time)
+    station_in_route(route).try(time)
   end
 
   def position_in (route, position)
