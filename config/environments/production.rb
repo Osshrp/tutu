@@ -84,12 +84,14 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: "intense-temple-27407.herokuapp.com" }
-  config.action_mailer.delivery_method = :postmark
-  # config.action.mailer.postmark_settings = { api_token: ENV['POSTMARK_API_TOKEN'] }
-  config.action.mailer.smtp_settings = {
-    password: ENV['POSTMARK_API_TOKEN'],
-    username: ENV['POSTMARK_API_TOKEN'],
-    # domain: "intense-temple-27407.herokuapp.com"
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: "587",
+    domain: "heroku.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV["SENDGRID_PASSWORD"]
   }
 end
