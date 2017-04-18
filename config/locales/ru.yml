@@ -31,6 +31,11 @@ ru:
     passport_number: 'Номер паспорта'
     hi: 'Привет'
     here: 'Здесь'
+    place_bottom_quantity: 'Количество нижних мест '
+    place_upper_quantity: 'Количество верхних мест '
+    place_side_upper_quantity: 'Количество верхних боковых мест '
+    place_side_bottom_quantity: 'Количество нижних боковых мест '
+    place_quantity: 'Количество сидячих мест '
   admin:
     carriages:
       index:
@@ -122,7 +127,7 @@ ru:
     form:
       start_station: 'Начальная станция'
       end_station: 'Конечная станция'
-  tickets_mailer:      
+  tickets_mailer:
     delete_ticket:
       subject: 'Вы отказались от покупки билета'
       reject: 'Вы отменили покупку билета по маршруту:'
