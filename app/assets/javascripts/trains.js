@@ -19,6 +19,5 @@ $(document).ready(function() {
 
     form.toggle();
     number.toggle();
-
   });
 });
