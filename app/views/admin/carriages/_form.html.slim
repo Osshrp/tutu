@@ -4,42 +4,41 @@
     - if carriage.new_record?
       = f.collection_select :type, Carriage::CAR_TYPES, :first, :last, {},
         {class: 'form-control'}
+        .first_class_carriage style = "display: 'block'"
+          .form-group
+            = f.label :bottom_places, t('admin.carriages.second_class_carriage.place_bottom_quantity')
+            = f.number_field :bottom_places, class: 'form-control'
+
+        .second_class_carriage style = "display: #{hidden ? 'none' : 'block'}"
+          .form-group
+            = f.label :upper_places, t('admin.carriages.second_class_carriage.place_upper_quantity')
+            = f.number_field :upper_places, class: 'form-control'
+          .form-group
+            = f.label :bottom_places, t('admin.carriages.second_class_carriage.place_bottom_quantity')
+            = f.number_field :bottom_places, class: 'form-control'
+
+        .third_class_carriage style = "display: #{hidden ? 'none' : 'block'}"
+          .form-group
+            = f.label :upper_places, t('admin.carriages.second_class_carriage.place_upper_quantity')
+            = f.number_field :upper_places, class: 'form-control'
+          .form-group
+            = f.label :bottom_places, t('admin.carriages.second_class_carriage.place_bottom_quantity')
+            = f.number_field :bottom_places, class: 'form-control'
+          .form-group
+            = f.label :side_upper_places, t('admin.carriages.third_class_carriage.place_side_upper_quantity')
+            = f.number_field :side_upper_places, class: 'form-control'
+          .form-group
+            = f.label :side_bottom_places, t('admin.carriages.third_class_carriage.place_side_bottom_quantity')
+            = f.number_field :side_bottom_places, class: 'form-control'
+
+        .couch_carriage style = "display: #{hidden ? 'none' : 'block'}"
+          .form-group
+            = f.label :bottom_places, t('admin.carriages.second_class_carriage.place_bottom_quantity')
+            = f.number_field :bottom_places, class: 'form-control'
     - else
       strong = t('common.carriage_type')
       = Carriage::CAR_TYPES[carriage.type]
-
-
-  .first_class_carriage style = "display: 'block'"
-    .form-group
-      = f.label :bottom_places, t('admin.carriages.second_class_carriage.place_bottom_quantity')
-      = f.number_field :bottom_places, class: 'form-control'
-
-  .second_class_carriage style = "display: #{hidden ? 'none' : 'block'}"
-    .form-group
-      = f.label :upper_places, t('admin.carriages.second_class_carriage.place_upper_quantity')
-      = f.number_field :upper_places, class: 'form-control'
-    .form-group
-      = f.label :bottom_places, t('admin.carriages.second_class_carriage.place_bottom_quantity')
-      = f.number_field :bottom_places, class: 'form-control'
-
-  .third_class_carriage style = "display: #{hidden ? 'none' : 'block'}"
-    .form-group
-      = f.label :upper_places, t('admin.carriages.second_class_carriage.place_upper_quantity')
-      = f.number_field :upper_places, class: 'form-control'
-    .form-group
-      = f.label :bottom_places, t('admin.carriages.second_class_carriage.place_bottom_quantity')
-      = f.number_field :bottom_places, class: 'form-control'
-    .form-group
-      = f.label :side_upper_places, t('admin.carriages.third_class_carriage.place_side_upper_quantity')
-      = f.number_field :side_upper_places, class: 'form-control'
-    .form-group
-      = f.label :side_bottom_places, t('admin.carriages.third_class_carriage.place_side_bottom_quantity')
-      = f.number_field :side_bottom_places, class: 'form-control'
-
-  .couch_carriage style = "display: #{hidden ? 'none' : 'block'}"
-    .form-group
-      = f.label :bottom_places, t('admin.carriages.second_class_carriage.place_bottom_quantity')
-      = f.number_field :bottom_places, class: 'form-control'
+      = render "edit_#{carriage.class.to_s.underscore}", f: f
 
   .form-group
     = f.label :train, t('common.train_number')

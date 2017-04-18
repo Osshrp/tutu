@@ -1,9 +1,4 @@
 $(document).ready(function() {
-  // $('.first_class_carriage').show();
-  // $('.second_class_carriage').toggle();
-  // $('.third_class_carriage').toggle();
-  // $('.couch_carriage').toggle();
-
   $('#carriage_type').change(function() {
     var select_value;
 
@@ -29,5 +24,12 @@ $(document).ready(function() {
       $('.third_class_carriage').hide();
       $('.couch_carriage').show();
     }
+  });
+  $('#new_carriage').submit(function(e) {
+    $("div").each(function() {
+      if($(this).css('display') == ('none')) {
+        ($(this).remove());
+      }
+    });
   });
 })
