@@ -1,7 +1,7 @@
 h1 Поиск билета
 
 .row
-  = form_tag search_path do
+  = form_tag search_path, class: 'search_form' do
     .col-md-4
       = label :start_station_id, t('.start_station'), class: 'control-label'
 
@@ -14,7 +14,7 @@ h1 Поиск билета
         options_from_collection_for_select(@railway_stations, :id, :title),
           { class: 'form-control' }
     .col-md-6
-      = submit_tag t('common.search'), class: 'btn btn-primary'
+      = submit_tag t('common.search'), class: 'btn btn-primary find'
 - if @trains
   .row
     .col-md-12
