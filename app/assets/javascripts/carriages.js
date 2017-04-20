@@ -1,8 +1,7 @@
 $(document).ready(function() {
   $('#carriage_type').change(function() {
-    var select_value;
+    var select_value = $(this).val();
 
-    select_value = $(this).val();
     if (select_value == 'FirstClassCarriage') {
       $('.first_class_carriage').show();
       $('.second_class_carriage').hide();
